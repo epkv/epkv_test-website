@@ -5,7 +5,7 @@ const sql = {
 }
 
 async function ADD_POST(data){
-    await pgPool.query(sql.ADD_POST, [data.account_id, data.content, data.date, data.attachment, data.score, data.tags])
+    await pgPool.query(sql.ADD_POST, [data.account_id, data.content, data.date, data.attachments, data.score, data.tags])
 }
 
 
