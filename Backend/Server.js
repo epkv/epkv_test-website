@@ -6,8 +6,8 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 //Routers
-const newsfeed = require('./Routes/NewsFeed')
-const search = require('./Routes/Search')
+const newsfeed = require('./Routes/NewsFeed_Router')
+const search = require('./Routes/Search_Router')
 
 const PORT = process.env.PORT || 3002;
 
@@ -16,9 +16,9 @@ app.use(express.json());
 app.use(cors());
 app.use(express.static('public'));
 
-app.use('/', deleteRouter);
-app.use('/', loginRouter);
-app.use('/', groupRouter);
+app.use('/news', newsfeed);
+app.use('/search', search);
+
 
 app.listen(PORT, function(){
     console.log("Server is running on port " + PORT)
