@@ -9,6 +9,7 @@ app.use(express.json());
 const newsfeed = require('./Routes/NewsFeed_Router')
 const search = require('./Routes/Search_Router')
 const post = require('./Routes/Post_Router')
+const user = require('./Routes/User_Router')
 
 const PORT = process.env.PORT || 3002;
 
@@ -19,7 +20,8 @@ app.use(express.static('public'));
 
 app.use('/news', newsfeed);
 app.use('/search', search);
-app.use('/post', post)
+app.use('/post', post);
+app.use('/user', user);
 
 
 app.listen(PORT, function(){
