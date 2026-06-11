@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import HeaderMain from './components/HeaderMain';
 
-function App() {
+const App = () => {
 
   return (
     <>
