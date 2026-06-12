@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import HeaderMain from './components/HeaderMain';
+import HeaderMobile from './components/HeaderMobile';
+import HeaderDesktop from './components/HeaderDesktop';
 
 const App = () => {
 
   return (
     <>
-      <HeaderMain />
+      <HeaderDesktop />
     </>
   )
 }
