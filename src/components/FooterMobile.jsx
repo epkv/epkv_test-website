@@ -10,7 +10,7 @@ const FooterMobile = () => {
                 <img
                     className='hover:bg-gray-200 rounded-md'
                     src={addLogo}
-                    alt='home'
+                    alt='add'
                     onClick={() => {
                         console.log("Add clicked")
                     }}
@@ -20,7 +20,7 @@ const FooterMobile = () => {
                 <img
                     className='hover:bg-gray-200 rounded-md'
                     src={notificationLogo}
-                    alt='home'
+                    alt='notification'
                     onClick={() => {
                         console.log("Notification clicked")
                     }}

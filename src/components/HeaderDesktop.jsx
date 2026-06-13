@@ -30,7 +30,7 @@ const HeaderDesktop = () => {
                 <img
                     className='hover:bg-gray-200 rounded-md'
                     src={filterLogo}
-                    alt='home'
+                    alt='filter'
                     onClick={() => {
                         console.log("Filter clicked")
                     }}
@@ -40,7 +40,7 @@ const HeaderDesktop = () => {
                 <img
                     className='hover:bg-gray-200 rounded-md'
                     src={addLogo}
-                    alt='home'
+                    alt='add'
                     onClick={() => {
                         console.log("Add clicked")
                     }}
@@ -50,7 +50,7 @@ const HeaderDesktop = () => {
                 <img
                     className='hover:bg-gray-200 rounded-md'
                     src={notificationLogo}
-                    alt='home'
+                    alt='notification'
                     onClick={() => {
                         console.log("Notification clicked")
                     }}
@@ -60,7 +60,7 @@ const HeaderDesktop = () => {
                 <img
                     className='hover:bg-gray-200 rounded-md'
                     src={accountLogo}
-                    alt='home'
+                    alt='account'
                     onClick={() => {
                         console.log("Account clicked")
                     }}

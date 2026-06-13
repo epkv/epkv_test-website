@@ -26,7 +26,7 @@ const HeaderMobile = () => {
             <button className="bg-white text-gray-800 pl-2 pr-4">
                 <img
                     src={filterLogo}
-                    alt='home'
+                    alt='filter'
                     onClick={() => {
                         console.log("Filter clicked")
                     }}
@@ -35,7 +35,7 @@ const HeaderMobile = () => {
             <button className="bg-white text-gray-800 lg:pl-124">
                 <img
                     src={accountLogo}
-                    alt='home'
+                    alt='account'
                     onClick={() => {
                         console.log("Account clicked")
                     }}
