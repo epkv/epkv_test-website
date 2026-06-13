@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import HeaderMobile from './components/HeaderMobile';
 import HeaderDesktop from './components/HeaderDesktop';
+import FooterMobile from './components/FooterMobile';
 
 const App = () => {
 
@@ -21,6 +22,7 @@ const App = () => {
     return (
       <>
         <HeaderMobile />
+        <FooterMobile />
       </>
     )
   return (
