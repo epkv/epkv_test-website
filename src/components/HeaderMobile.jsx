@@ -1,7 +1,7 @@
 import '../style.css'
-import homeLogo from "../assets/home.svg"
-import filterLogo from "../assets/filter.svg"
-import accountLogo from "../assets/account.svg"
+import homeLogo from "../assets/homeMobile.svg"
+import filterLogo from "../assets/filterMobile.svg"
+import accountLogo from "../assets/accountMobile.svg"
 
 const HeaderMobile = () => {
 
