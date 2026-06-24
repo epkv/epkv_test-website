@@ -3,16 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
 const usermodel = require('../Models/User')
 
-// localhost:8080/search/?startdate=xyz&endate=xyz&search=xyz
-// Every post from date range with or without search string
-router.get('/', async (req, res) => {
-  try {
-    res.status(200).json(await usermodel.ADD_USER());
-  } catch (err) {
-    res.status(500).json(err.message);
-  }
-})
-
+// localhost:8080/user/register body with "username" and "password"
 router.put('/register', async (req, res) => {
   //check items exist
   if (req.body === undefined || req.body.username === undefined || req.body.password === undefined) {
@@ -32,7 +23,7 @@ router.put('/register', async (req, res) => {
   }
 })
 
-// 
+// localhost:8080/user/login body with "username" and "password"
 router.put('/login', async (req, res) => {
   //check items exist
   if (req.body === undefined || req.body.username === undefined || req.body.password === undefined) {
@@ -42,16 +33,16 @@ router.put('/login', async (req, res) => {
   //Gets UserId Based on username!
   const UserId = await usermodel.GETUSER_ID(req.body.username).then(async (userid) => {
     await usermodel.GETPASS_USER(userid).then(async (HashedPassword) => {
-
       //Compare passwords
-
       await bcrypt.compare(req.body.password, HashedPassword).then((Comparison) => {
+        //if password was correct
         if (Comparison) {
           //Create Token with secret
           const token = jwt.sign({
-            userid: userid,
-            expr: "1h"
-          }, process.env.Secret)
+            userid: userid, 
+          }, process.env.Secret, {
+            expiresIn: '30m'
+          });
           //add Token
           res.cookie("jtw", token, {
             sameSite: "none",
@@ -63,18 +54,11 @@ router.put('/login', async (req, res) => {
           res.status(500).json("Login Failed");
         }
       })
-
-
     })
-
   })
-
-  //Fecth pass for comaparison
-
 })
 
 function PassReq(pass) {
-  console.log("PassReq")
   // check for special characters
   const specialChars = `/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;`
   const containsspecial = specialChars.split('').some(char => pass.includes(char))
