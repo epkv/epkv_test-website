@@ -58,6 +58,19 @@ router.put('/login', async (req, res) => {
   })
 })
 
+router.get('/', async (req, res) => {
+  const token = req.query.token
+  jwt.verify(token, process.env.Secret, function(err, decoded){
+    if(err){
+      res.status(500).json(err)
+    } else {
+      console.log("Token verified")
+      res.status(200).json("Token Verified")
+    }
+  })
+
+})
+
 function PassReq(pass) {
   // check for special characters
   const specialChars = `/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;`
