@@ -24,6 +24,7 @@ const App = () => {
     return (
       <>
         <HeaderMobile />
+        <FooterMobile />
       </>
     )
   return (
