@@ -6,7 +6,7 @@ import accountLogo from "../assets/accountMobile.svg"
 const HeaderMobile = () => {
 
     return (
-        <div className="flex flex-row w-full p-4 border-b border-solid border-black shadow-sm absolute inset-x-0 top-0">
+        <div className="flex flex-row w-full p-4 border-b border-solid border-black shadow-sm fixed inset-x-0 top-0 bg-white">
             <button className="bg-white text-gray-800 pr-4">
                 <img
                     src={homeLogo}

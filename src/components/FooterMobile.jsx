@@ -5,7 +5,7 @@ import notificationLogo from "../assets/notificationMobile.svg"
 const FooterMobile = () => {
 
     return (
-        <div className="flex flex-row w-full p-4 border-t border-solid border-black rounded-md shadow-sm absolute inset-x-0 bottom-0 justify-evenly">
+        <div className="flex flex-row w-full p-4 border-t border-solid border-black rounded-md shadow-sm fixed inset-x-0 bottom-0 bg-white">
             <div className="flex flex-row justify-around w-full">
                 <button className="bg-white text-gray-800">
                     <img

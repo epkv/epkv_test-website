@@ -4,6 +4,7 @@ import HeaderDesktop from './components/HeaderDesktop';
 import FooterMobile from './components/FooterMobile';
 import PostAddMobile from './components/PostAddMobile';
 import PostaddDesktop from './components/PostAddDesktop';
+import Newsfeed from './components/Newsfeed';
 
 const App = () => {
 
@@ -24,12 +25,14 @@ const App = () => {
     return (
       <>
         <HeaderMobile />
+        <Newsfeed />
         <FooterMobile />
       </>
     )
   return (
     <>
       <HeaderDesktop />
+      <Newsfeed />
     </>
   )
 }
