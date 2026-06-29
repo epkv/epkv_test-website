@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import HeaderMobile from './components/HeaderMobile';
 import HeaderDesktop from './components/HeaderDesktop';
 import FooterMobile from './components/FooterMobile';
+import PostAddMobile from './components/PostAddMobile';
+import PostaddDesktop from './components/PostAddDesktop';
 
 const App = () => {
 
@@ -21,13 +23,13 @@ const App = () => {
   if (isMobile)
     return (
       <>
-        <HeaderMobile />
-        <FooterMobile />
+        <PostAddMobile />
       </>
     )
   return (
     <>
       <HeaderDesktop />
+      <PostaddDesktop />
     </>
   )
 }
