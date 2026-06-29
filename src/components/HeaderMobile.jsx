@@ -6,7 +6,7 @@ import accountLogo from "../assets/accountMobile.svg"
 const HeaderMobile = () => {
 
     return (
-        <div className="flex flex-row flex-wrap w-full p-4 border-b border-solid border-black shadow-sm absolute inset-x-0 top-0">
+        <div className="flex flex-row w-full p-4 border-b border-solid border-black shadow-sm absolute inset-x-0 top-0">
             <button className="bg-white text-gray-800 pr-4">
                 <img
                     src={homeLogo}
@@ -23,24 +23,26 @@ const HeaderMobile = () => {
                     console.log("Search clicked")
                 }}
             />
-            <button className="bg-white text-gray-800 pl-2 pr-4">
-                <img
-                    src={filterLogo}
-                    alt='filter'
-                    onClick={() => {
-                        console.log("Filter clicked")
-                    }}
-                />
-            </button>
-            <button className="bg-white text-gray-800 lg:pl-124">
-                <img
-                    src={accountLogo}
-                    alt='account'
-                    onClick={() => {
-                        console.log("Account clicked")
-                    }}
-                />
-            </button>
+            <div className="flex flex-row justify-around w-1/3">
+                <button className="bg-white text-gray-800">
+                    <img
+                        src={filterLogo}
+                        alt='filter'
+                        onClick={() => {
+                            console.log("Filter clicked")
+                        }}
+                    />
+                </button>
+                <button className="bg-white text-gray-800">
+                    <img
+                        src={accountLogo}
+                        alt='account'
+                        onClick={() => {
+                            console.log("Account clicked")
+                        }}
+                    />
+                </button>
+            </div>
         </div>
     )
 }
