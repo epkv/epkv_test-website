@@ -23,13 +23,12 @@ const App = () => {
   if (isMobile)
     return (
       <>
-        <PostAddMobile />
+        <HeaderMobile />
       </>
     )
   return (
     <>
       <HeaderDesktop />
-      <PostaddDesktop />
     </>
   )
 }

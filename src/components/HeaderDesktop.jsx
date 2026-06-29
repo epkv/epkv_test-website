@@ -8,7 +8,7 @@ import notificationLogo from "../assets/notification.svg"
 const HeaderDesktop = () => {
 
     return (
-        <div className="flex flex-row flex-wrap w-full p-4 border-b border-solid border-black shadow-sm absolute inset-x-0 top-0">
+        <div className="flex flex-row w-full p-4 border-b border-solid border-black shadow-sm absolute inset-x-0 top-0">
             <button className="bg-white text-gray-800 pr-4">
                 <img
                     className='hover:bg-gray-200 rounded-md'
@@ -26,46 +26,48 @@ const HeaderDesktop = () => {
                     console.log("Search clicked")
                 }}
             />
-            <button className="bg-white text-gray-800 pl-4 pr-8">
-                <img
-                    className='hover:bg-gray-200 rounded-md'
-                    src={filterLogo}
-                    alt='filter'
-                    onClick={() => {
-                        console.log("Filter clicked")
-                    }}
-                />
-            </button>
-            <button className="bg-white text-gray-800 pl-8 pr-8">
-                <img
-                    className='hover:bg-gray-200 rounded-md'
-                    src={addLogo}
-                    alt='add'
-                    onClick={() => {
-                        console.log("Add clicked")
-                    }}
-                />
-            </button>
-            <button className="bg-white text-gray-800 pl-8 pr-8">
-                <img
-                    className='hover:bg-gray-200 rounded-md'
-                    src={notificationLogo}
-                    alt='notification'
-                    onClick={() => {
-                        console.log("Notification clicked")
-                    }}
-                />
-            </button>
-            <button className="bg-white text-gray-800 pl-8">
-                <img
-                    className='hover:bg-gray-200 rounded-md'
-                    src={accountLogo}
-                    alt='account'
-                    onClick={() => {
-                        console.log("Account clicked")
-                    }}
-                />
-            </button>
+            <div className="flex flex-row justify-around w-1/2">
+                <button className="bg-white text-gray-800">
+                    <img
+                        className='hover:bg-gray-200 rounded-md'
+                        src={filterLogo}
+                        alt='filter'
+                        onClick={() => {
+                            console.log("Filter clicked")
+                        }}
+                    />
+                </button>
+                <button className="bg-white text-gray-800">
+                    <img
+                        className='hover:bg-gray-200 rounded-md'
+                        src={addLogo}
+                        alt='add'
+                        onClick={() => {
+                            console.log("Add clicked")
+                        }}
+                    />
+                </button>
+                <button className="bg-white text-gray-800">
+                    <img
+                        className='hover:bg-gray-200 rounded-md'
+                        src={notificationLogo}
+                        alt='notification'
+                        onClick={() => {
+                            console.log("Notification clicked")
+                        }}
+                    />
+                </button>
+                <button className="bg-white text-gray-800">
+                    <img
+                        className='hover:bg-gray-200 rounded-md'
+                        src={accountLogo}
+                        alt='account'
+                        onClick={() => {
+                            console.log("Account clicked")
+                        }}
+                    />
+                </button>
+            </div>
         </div>
     )
 }
