@@ -24,56 +24,81 @@ const SearchMobile = () => {
                     }}
                 />
             </div>
-            <ul className="flex flex-col w-full mt-24">
+            <ul className="flex flex-col w-full mt-24 border-b">
                 <li className="flex flex-row w-full justify-between border-b border-solid border-black shadow-sm pt-4 pb-4 pr-4 pl-4">
-                    <img
-                        classname="hover:bg-gray-200 rounded-md"
-                        src={placeholderImageLogo}
-                        alt="userImage"
-                    />
-                    <p className="text-wrap">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                    <button
+                        className="w-full flex flex-row"
+                        onClick={() => { console.log("Search result clicked") }}
+                    >
+                        <img
+                            classname="hover:bg-gray-200 rounded-md"
+                            src={placeholderImageLogo}
+                            alt="userImage"
+                        />
+                        <p className="text-wrap">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                    </button>
                 </li>
                 <li className="flex flex-row w-full justify-between border-b border-solid border-black shadow-sm pt-4 pb-4 pr-4 pl-4">
-                    <img
-                        classname="hover:bg-gray-200 rounded-md"
-                        src={placeholderImageLogo}
-                        alt="userImage"
-                    />
-                    <p className="text-wrap">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                    <button
+                        className="w-full flex flex-row"
+                        onClick={() => { console.log("Search result clicked") }}
+                    >
+                        <img
+                            className="hover:bg-gray-200 rounded-md"
+                            src={placeholderImageLogo}
+                            alt="userImage"
+                        />
+                        <p className="text-wrap">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                    </button>
                 </li>
                 <li className="flex flex-row w-full justify-between border-b border-solid border-black shadow-sm pt-4 pb-4 pr-4 pl-4">
-                    <img
-                        classname="hover:bg-gray-200 rounded-md"
-                        src={placeholderImageLogo}
-                        alt="userImage"
-                    />
-                    <p className="text-wrap">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                    <button
+                        className="w-full flex flex-row"
+                        onClick={() => { console.log("Search result clicked") }}
+                    >
+                        <img
+                            className="hover:bg-gray-200 rounded-md"
+                            src={placeholderImageLogo}
+                            alt="userImage"
+                        />
+                        <p className="text-wrap">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                    </button>
                 </li>
                 <li className="flex flex-row w-full justify-between border-b border-solid border-black shadow-sm pt-4 pb-4 pr-4 pl-4">
-                    <img
-                        classname="hover:bg-gray-200 rounded-md"
-                        src={placeholderImageLogo}
-                        alt="userImage"
-                    />
-                    <p className="text-wrap">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                    <button
+                        className="w-full flex flex-row"
+                        onClick={() => { console.log("Search result clicked") }}
+                    >
+                        <img
+                            className="hover:bg-gray-200 rounded-md"
+                            src={placeholderImageLogo}
+                            alt="userImage"
+                        />
+                        <p className="text-wrap">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                    </button>
                 </li>
                 <li className="flex flex-row w-full justify-between border-b border-solid border-black shadow-sm pt-4 pb-4 pr-4 pl-4">
-                    <img
-                        classname="hover:bg-gray-200 rounded-md"
-                        src={placeholderImageLogo}
-                        alt="userImage"
-                    />
-                    <p className="text-wrap">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                    <button
+                        className="w-full flex flex-row"
+                        onClick={() => { console.log("Search result clicked") }}
+                    >
+                        <img
+                            className="hover:bg-gray-200 rounded-md"
+                            src={placeholderImageLogo}
+                            alt="userImage"
+                        />
+                        <p className="text-wrap">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                    </button>
                 </li>
+                <button
+                    className="bg-white p-4"
+                    onClick={() => { console.log("Show more clicked") }}
+                >
+                    <h1 className="text-blue-700 text-2xl">
+                        Show more
+                    </h1>
+                </button>
             </ul>
-            <button
-                className="bg-white p-4 border-b"
-                onClick={() => { console.log("Show more clicked") }}
-            >
-                <h1 className="text-blue-700 text-2xl">
-                    Show more
-                </h1>
-            </button>
         </div>
     )
 }

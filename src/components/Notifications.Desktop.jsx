@@ -5,8 +5,8 @@ import optionsLogo from "../assets/options.svg"
 
 const NotificationsDesktop = () => {
     return (
-        <div className="flex flex-col w-full mt-16 items-center justify-center z-50">
-            <ul className="flex flex-col w-1/2 border-r border-l border-solid border-black shadow-sm">
+        <div className="flex flex-col w-full mt-16 items-center justify-center z-50 bg-black/50">
+            <ul className="flex flex-col w-1/2 border-r border-l border-solid border-black shadow-sm bg-white">
                 <li className="flex flex-row w-full justify-start border-b border-solid border-black shadow-sm pt-4 pb-4 pr-4 pl-4">
                     <img
                         classname="hover:bg-gray-200 rounded-md"

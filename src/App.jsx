@@ -8,6 +8,7 @@ import Newsfeed from './components/Newsfeed';
 import NotificationsMobile from './components/Notifications.Mobile';
 import NotificationsDesktop from './components/Notifications.Desktop';
 import SearchMobile from './components/Search.Mobile';
+import SearchDesktop from './components/Search.Desktop';
 
 const App = () => {
 
@@ -33,7 +34,7 @@ const App = () => {
   return (
     <>
       <HeaderDesktop />
-      <NotificationsDesktop />
+      <SearchDesktop />
     </>
   )
 }
