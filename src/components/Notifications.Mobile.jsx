@@ -2,7 +2,7 @@ import '../style.css'
 import arrowLeftLogo from "../assets/arrowLeft.svg"
 import placeholderImageLogo from "../assets/placeholderImage.svg"
 
-const Notifications = () => {
+const NotificationsMobile = () => {
     return (
         <div className="flex flex-col w-full">
             <div className="flex flex-row w-full p-4 justify-between border-b border-solid border-black shadow-sm fixed inset-x-0 top-0 bg-white">
@@ -32,7 +32,7 @@ const Notifications = () => {
                 </li>
                 <li className="flex flex-row w-full justify-between border-b border-solid border-black shadow-sm pt-4 pb-4 pr-4 pl-4">
                     <img
-                        classname="hover:bg-gray-200 rounded-md"
+                        className="hover:bg-gray-200 rounded-md"
                         src={placeholderImageLogo}
                         alt="userImage"
                     />
@@ -41,15 +41,7 @@ const Notifications = () => {
                 </li>
                 <li className="flex flex-row w-full justify-between border-b border-solid border-black shadow-sm pt-4 pb-4 pr-4 pl-4">
                     <img
-                        classname="hover:bg-gray-200 rounded-md"
-                        src={placeholderImageLogo}
-                        alt="userImage"
-                    />
-                    <h1>Username</h1>
-                    <p>Added a new post</p>
-                </li>       <li className="flex flex-row w-full justify-between border-b border-solid border-black shadow-sm pt-4 pb-4 pr-4 pl-4">
-                    <img
-                        classname="hover:bg-gray-200 rounded-md"
+                        className="hover:bg-gray-200 rounded-md"
                         src={placeholderImageLogo}
                         alt="userImage"
                     />
@@ -58,7 +50,7 @@ const Notifications = () => {
                 </li>
                 <li className="flex flex-row w-full justify-between border-b border-solid border-black shadow-sm pt-4 pb-4 pr-4 pl-4">
                     <img
-                        classname="hover:bg-gray-200 rounded-md"
+                        className="hover:bg-gray-200 rounded-md"
                         src={placeholderImageLogo}
                         alt="userImage"
                     />
@@ -67,7 +59,7 @@ const Notifications = () => {
                 </li>
                 <li className="flex flex-row w-full justify-between border-b border-solid border-black shadow-sm pt-4 pb-4 pr-4 pl-4">
                     <img
-                        classname="hover:bg-gray-200 rounded-md"
+                        className="hover:bg-gray-200 rounded-md"
                         src={placeholderImageLogo}
                         alt="userImage"
                     />
@@ -76,7 +68,7 @@ const Notifications = () => {
                 </li>
                 <li className="flex flex-row w-full justify-between border-b border-solid border-black shadow-sm pt-4 pb-4 pr-4 pl-4">
                     <img
-                        classname="hover:bg-gray-200 rounded-md"
+                        className="hover:bg-gray-200 rounded-md"
                         src={placeholderImageLogo}
                         alt="userImage"
                     />
@@ -85,7 +77,16 @@ const Notifications = () => {
                 </li>
                 <li className="flex flex-row w-full justify-between border-b border-solid border-black shadow-sm pt-4 pb-4 pr-4 pl-4">
                     <img
-                        classname="hover:bg-gray-200 rounded-md"
+                        className="hover:bg-gray-200 rounded-md"
+                        src={placeholderImageLogo}
+                        alt="userImage"
+                    />
+                    <h1>Username</h1>
+                    <p>Added a new post</p>
+                </li>
+                <li className="flex flex-row w-full justify-between border-b border-solid border-black shadow-sm pt-4 pb-4 pr-4 pl-4">
+                    <img
+                        className="hover:bg-gray-200 rounded-md"
                         src={placeholderImageLogo}
                         alt="userImage"
                     />
@@ -97,4 +98,4 @@ const Notifications = () => {
     )
 }
 
-export default Notifications;
+export default NotificationsMobile;

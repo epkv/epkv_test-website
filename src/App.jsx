@@ -5,7 +5,8 @@ import FooterMobile from './components/Footer.Mobile';
 import PostAddMobile from './components/PostAdd.Mobile';
 import PostaddDesktop from './components/PostAdd.Desktop';
 import Newsfeed from './components/Newsfeed';
-import SearchResults from './components/Notifications.Mobile';
+import NotificationsMobile from './components/Notifications.Mobile';
+import NotificationsDesktop from './components/Notifications.Desktop';
 
 const App = () => {
 
@@ -25,12 +26,13 @@ const App = () => {
   if (isMobile)
     return (
       <>
-        <SearchResults />
+        <NotificationsMobile />
       </>
     )
   return (
     <>
       <HeaderDesktop />
+      <NotificationsDesktop />
     </>
   )
 }
