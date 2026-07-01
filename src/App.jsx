@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import HeaderMobile from './components/HeaderMobile';
-import HeaderDesktop from './components/HeaderDesktop';
-import FooterMobile from './components/FooterMobile';
-import PostAddMobile from './components/PostAddMobile';
-import PostaddDesktop from './components/PostAddDesktop';
+import HeaderMobile from './components/Header.Mobile';
+import HeaderDesktop from './components/Header.Desktop';
+import FooterMobile from './components/Footer.Mobile';
+import PostAddMobile from './components/PostAdd.Mobile';
+import PostaddDesktop from './components/PostAdd.Desktop';
 import Newsfeed from './components/Newsfeed';
+import SearchResults from './components/Notifications.Mobile';
 
 const App = () => {
 
@@ -24,15 +25,12 @@ const App = () => {
   if (isMobile)
     return (
       <>
-        <HeaderMobile />
-        <Newsfeed />
-        <FooterMobile />
+        <SearchResults />
       </>
     )
   return (
     <>
       <HeaderDesktop />
-      <Newsfeed />
     </>
   )
 }

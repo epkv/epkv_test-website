@@ -8,7 +8,7 @@ import notificationLogo from "../assets/notification.svg"
 const HeaderDesktop = () => {
 
     return (
-        <div className="flex flex-row w-full p-4 border-b border-solid border-black shadow-sm absolute inset-x-0 top-0 bg-white">
+        <div className="flex flex-row w-full p-4 border-b border-solid border-black shadow-sm fixed inset-x-0 top-0 bg-white">
             <button className="bg-white text-gray-800 pr-4">
                 <img
                     className='hover:bg-gray-200 rounded-md'

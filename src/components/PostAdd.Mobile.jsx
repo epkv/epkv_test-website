@@ -1,7 +1,7 @@
 import '../style.css'
 import addLogo from "../assets/addMobile.svg"
 import exitLogo from "../assets/exit.svg"
-import arrowDownLogo from "../assets/arrow-down.svg"
+import arrowDownLogo from "../assets/arrowDown.svg"
 
 const PostAddMobile = () => {
 
