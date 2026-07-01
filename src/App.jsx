@@ -7,6 +7,7 @@ import PostaddDesktop from './components/PostAdd.Desktop';
 import Newsfeed from './components/Newsfeed';
 import NotificationsMobile from './components/Notifications.Mobile';
 import NotificationsDesktop from './components/Notifications.Desktop';
+import SearchMobile from './components/Search.Mobile';
 
 const App = () => {
 
@@ -26,7 +27,7 @@ const App = () => {
   if (isMobile)
     return (
       <>
-        <NotificationsMobile />
+        <SearchMobile />
       </>
     )
   return (
