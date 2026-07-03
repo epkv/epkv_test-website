@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import HeaderMobile from './components/Header.Mobile';
 import HeaderDesktop from './components/Header.Desktop';
 import FooterMobile from './components/Footer.Mobile';
@@ -9,32 +8,27 @@ import NotificationsMobile from './components/Notifications.Mobile';
 import NotificationsDesktop from './components/Notifications.Desktop';
 import SearchMobile from './components/Search.Mobile';
 import SearchDesktop from './components/Search.Desktop';
+import ProfileMenu from './components/Profile.Menu';
+import { useIsMobile } from './hooks/useIsMobile';
 
 const App = () => {
 
-  const [isMobile, setIsMobile] = useState(false);
+  // Calls the hook to determine if current screen is a mobile-screen or not
+  const isMobile = useIsMobile();
 
-  useEffect(() => {
-    function handleResize() {
-      setIsMobile(window.innerWidth <= 768);
-    }
-    handleResize()
-
-    window.addEventListener('resize', handleResize);
-
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
+  // Rendering logic for mobile-screens and desktop based on returned value from above hook
   if (isMobile)
     return (
       <>
-        <SearchMobile />
+        <HeaderMobile />
+        <ProfileMenu />
+        <FooterMobile />
       </>
     )
   return (
     <>
       <HeaderDesktop />
-      <SearchDesktop />
+      <ProfileMenu />
     </>
   )
 }
