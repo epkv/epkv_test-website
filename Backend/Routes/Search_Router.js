@@ -24,4 +24,32 @@ router.get('/all', async(req, res) =>{
         res.status(500).json({ error: "There was an error" });
     } 
 })
+//localhost:8080/search/asc?search=xyz
+//returns in ascending order of scores for a certain search string
+router.post('/asc', async(req,res) =>{
+    try{
+        res.status(200).json(await searchmodel.SEARCHSCORE_ASC(req.query.search));
+    } catch {
+        res.status(500).json({ error: "There was an error" });
+    }
+})
+//localhost:8080/search/desc?search=xyz
+//returns in descending order of scores for a certain search string
+router.post('/desc', async(req,res) =>{
+     try{
+        res.status(200).json(await searchmodel.SEARCHSCORE_DESC(req.query.search));
+    } catch {
+        res.status(500).json({ error: "There was an error" });
+    }
+})
+//localhost:8080/search/above?search=xyz&above=int
+//returns in descending order of scores for a certain search string
+router.post('/above', async(req,res) =>{
+     try{
+        res.status(200).json(await searchmodel.SEARCHSCORE_DESC(req.query.above, req.query.search));
+    } catch {
+        res.status(500).json({ error: "There was an error" });
+    }
+})
+
 module.exports = router;
