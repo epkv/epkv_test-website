@@ -1,9 +1,11 @@
 const cors = require('cors');
 const express = require('express');
+const cookieparser = require('cookie-parser')
 var app = express();
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+app.use(cookieparser())
 
 //Routers
 const newsfeed = require('./Routes/NewsFeed_Router')

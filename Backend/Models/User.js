@@ -9,12 +9,14 @@ const sql = {
 async function ADD_USER(username, password){
     await pgPool.query(sql.ADD_USER, [username, password, "Tempusermail"])
 }
+
 async function GETPASS_USER(account_id){
     const results = await pgPool.query(sql.GET_PASS, [account_id])
      if(results.rowCount !== 0){
             return results.rows[0].password
     }
-}   
+}
+
 async function GETUSER_ID(username) {
     const results = await pgPool.query(sql.GET_USERID, [username])
     if(results.rowCount !== 0){
