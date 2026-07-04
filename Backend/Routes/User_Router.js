@@ -44,7 +44,7 @@ router.put('/login', async (req, res) => {
             expiresIn: '30m'
           });
           //add Token
-          res.cookie("jtw", token, {
+          res.cookie("jwt", token, {
             sameSite: "none",
             secure: true,
           })
@@ -59,7 +59,7 @@ router.put('/login', async (req, res) => {
 })
 
 router.get('/', async (req, res) => {
-  const token = req.query.token
+  const token = req.cookies.jwt
   jwt.verify(token, process.env.Secret, function(err, decoded){
     if(err){
       res.status(500).json(err)
