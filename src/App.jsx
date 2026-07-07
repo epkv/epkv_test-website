@@ -25,22 +25,38 @@ const App = ({ children }) => {
     setActivePanel(prev => (prev === panel ? null : panel))
   };
 
+  const closePanel = () => {
+    setActivePanel(null)
+  }
+
   console.log(activePanel)
+
 
   // Rendering logic for mobile-screens and desktop based on returned value from above hook
   if (isMobile)
     return (
       <>
-        <HeaderMobile
-          onHomeClick={() => { console.log("Home clicked") }}
-          onSearchClick={() => togglePanel("search")}
-          onFilterClick={() => { console.log("Filter clicked") }}
-          onProfileClick={() => togglePanel('profile')}
-        />
+        {activePanel !== 'add' && (
+          <HeaderMobile
+            onHomeClick={() => { console.log("Home clicked") }}
+            onSearchClick={() => togglePanel("search")}
+            onFilterClick={() => { console.log("Filter clicked") }}
+            onProfileClick={() => togglePanel('profile')}
+          />
+        )}
 
-        {activePanel === 'search' && <SearchMobile onClose={() => setActivePanel(null)} />}
-        {activePanel === 'filter' && <FilterPanel onClose={() => setActivePanel(null)} />}
-        {activePanel === 'profile' && <ProfileMenu onClose={() => setActivePanel(null)} />}
+        {activePanel === 'search' && <SearchMobile onClose={closePanel} />}
+        {activePanel === 'filter' && <FilterPanel onClose={closePanel} />}
+        {activePanel === 'profile' && <ProfileMenu onClose={closePanel} />}
+
+        {activePanel !== 'add' && (
+          <FooterMobile
+            onAddClick={() => togglePanel('add')}
+            onNotificationClick={() => togglePanel('notification')}
+          />
+        )}
+
+        {activePanel === 'add' && <PostAddMobile onClosePost={closePanel} />}
 
         <main className="pt-16">{children}</main>
       </>
@@ -56,11 +72,11 @@ const App = ({ children }) => {
         onProfileClick={() => togglePanel('profile')}
       />
 
-      {activePanel === 'search' && <SearchDesktop onClose={() => setActivePanel(null)} />}
-      {activePanel === 'filter' && <FilterPanel onClose={() => setActivePanel(null)} />}
-      {activePanel === 'add' && <PostaddDesktop onClose={() => setActivePanel(null)} />}
-      {activePanel === 'notification' && <NotificationsDesktop onClose={() => setActivePanel(null)} />}
-      {activePanel === 'profile' && <ProfileMenu onClose={() => setActivePanel(null)} />}
+      {activePanel === 'search' && <SearchDesktop onCloseSearch={closePanel} />}
+      {activePanel === 'filter' && <FilterPanel onCloseFilter={closePanel} />}
+      {activePanel === 'add' && <PostaddDesktop onClosePost={closePanel} />}
+      {activePanel === 'notification' && <NotificationsDesktop onCloseNotifications={closePanel} />}
+      {activePanel === 'profile' && <ProfileMenu onCloseProfileMenu={closePanel} />}
 
       <main className="pt-16">{children}</main>
 

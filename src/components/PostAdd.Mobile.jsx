@@ -3,18 +3,15 @@ import addLogo from "../assets/addMobile.svg"
 import exitLogo from "../assets/exit.svg"
 import arrowDownLogo from "../assets/arrowDown.svg"
 
-const PostAddMobile = () => {
+const PostAddMobile = ({ onClosePost }) => {
 
     return (
         <div className="flex flex-col flex-wrap w-full h-full">
             <div className=" flex flex-row justify-between w-full border-b border-solid border-black p-4">
-                <button className="bg-white text-gray-800">
+                <button className="bg-white text-gray-800" onClick={onClosePost}>
                     <img
                         src={exitLogo}
                         alt='exit'
-                        onClick={() => {
-                            console.log("Exit clicked")
-                        }}
                     />
                 </button>
                 <button className="bg-white text-gray-800 flex flex-row text-center text-3xl">
