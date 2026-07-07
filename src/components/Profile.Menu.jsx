@@ -1,8 +1,9 @@
 import '../style.css'
 import { useIsMobile } from '../hooks/useIsMobile'
 import { useState } from 'react'
+import exitLogo from "../assets/exit.svg"
 
-const ProfileMenu = () => {
+const ProfileMenu = ({ onCloseProfileMenu }) => {
 
     return (
         <>
@@ -15,10 +16,8 @@ const ProfileMenu = () => {
                             <h1>
                                 Username
                             </h1>
-                            <button>
-                                test
-                                <img>
-                                </img>
+                            <button onClick={onCloseProfileMenu}>
+                                <img src={exitLogo} alt='exit' />
                             </button>
                         </div>
                         <ul className="flex flex-col justify-around items-around p-4">

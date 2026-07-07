@@ -2,11 +2,11 @@ import '../style.css'
 import arrowLeftLogo from "../assets/arrowLeft.svg"
 import placeholderImageLogo from "../assets/placeholderImage.svg"
 
-const SearchMobile = () => {
+const SearchMobile = ({ onCloseSearch }) => {
     return (
         <div className="flex flex-col w-full">
             <div className="flex flex-row w-full p-4 justify-between border-b border-solid border-black shadow-sm fixed inset-x-0 top-0 bg-white">
-                <button className="bg-white text-gray-800">
+                <button className="bg-white text-gray-800" onClick={onCloseSearch}>
                     <img
                         className='hover:bg-gray-200 rounded-md'
                         src={arrowLeftLogo}

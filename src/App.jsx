@@ -45,9 +45,9 @@ const App = ({ children }) => {
           />
         )}
 
-        {activePanel === 'search' && <SearchMobile onClose={closePanel} />}
+        {activePanel === 'search' && <SearchMobile onCloseSearch={closePanel} />}
         {activePanel === 'filter' && <FilterPanel onClose={closePanel} />}
-        {activePanel === 'profile' && <ProfileMenu onClose={closePanel} />}
+        {activePanel === 'profile' && <ProfileMenu onCloseProfileMenu={closePanel} />}
 
         {activePanel !== 'add' && (
           <FooterMobile
