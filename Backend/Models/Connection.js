@@ -1,4 +1,6 @@
 require("dotenv").config();
+
+console.log('PG_PASSWORD:', process.env.PG_PASSWORD);
 const { Pool } = require("pg");
 
 const pgPool = new Pool({
@@ -9,8 +11,8 @@ const pgPool = new Pool({
     password: process.env.PG_PW,
 })
 
-pgPool.connect((err)=>{
-    if(err){
+pgPool.connect((err) => {
+    if (err) {
         console.log(err.message);
     }
 })

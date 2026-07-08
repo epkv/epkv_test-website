@@ -50,6 +50,10 @@ const App = ({ children }) => {
         {activePanel === 'profile' && <ProfileMenu onCloseProfileMenu={closePanel} />}
 
         {activePanel !== 'add' && (
+          <Newsfeed />
+        )}
+
+        {activePanel !== 'add' && (
           <FooterMobile
             onAddClick={() => togglePanel('add')}
             onNotificationClick={() => togglePanel('notification')}
@@ -77,6 +81,10 @@ const App = ({ children }) => {
       {activePanel === 'add' && <PostaddDesktop onClosePost={closePanel} />}
       {activePanel === 'notification' && <NotificationsDesktop onCloseNotifications={closePanel} />}
       {activePanel === 'profile' && <ProfileMenu onCloseProfileMenu={closePanel} />}
+
+      {activePanel !== 'add' && (
+        <Newsfeed />
+      )}
 
       <main className="pt-16">{children}</main>
 

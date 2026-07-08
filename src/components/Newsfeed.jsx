@@ -1,6 +1,16 @@
 import '../style.css'
+import React, { useState, useEffect } from "react";
 
 const Newsfeed = () => {
+
+    const [items, setItems] = useState([]);
+    const [dataIsLoaded, setDataIsLoaded] = useState(false);
+
+    fetch('http://localhost:3002/api/newsfeed/')
+        .then(res => res.json())
+        .then(data => console.log(data))
+
+
     return (
         <div className="mt-16 p-8">
             <div className="flex flex-col">
