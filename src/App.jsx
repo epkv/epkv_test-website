@@ -15,6 +15,7 @@ import { useIsMobile } from './hooks/useIsMobile';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import PostList from './components/PostList';
+import SearchFilter from './components/SearchFilter';
 const API_BASE = "http://localhost:3002/search"
 
 const App = ({ children }) => {
@@ -63,16 +64,14 @@ const App = ({ children }) => {
             onSearchClick={() => togglePanel("search")}
             onFilterClick={() => { console.log("Filter clicked") }}
             onProfileClick={() => togglePanel('profile')}
+            onSearchResults={setPosts}
+            onLoadingChange={setLoading}
           />
         )}
 
         {activePanel === 'search' && <SearchMobile onCloseSearch={closePanel} />}
         {activePanel === 'filter' && <FilterPanel onClose={closePanel} />}
         {activePanel === 'profile' && <ProfileMenu onCloseProfileMenu={closePanel} />}
-
-        {activePanel !== 'add' && (
-          <Newsfeed />
-        )}
 
         {activePanel !== 'add' && (
           <FooterMobile
@@ -110,12 +109,6 @@ const App = ({ children }) => {
       {activePanel === 'profile' && <ProfileMenu onCloseProfileMenu={closePanel} />}
 
       <PostList posts={posts} loading={loading} />
-
-      {
-        activePanel !== 'add' && (
-          <Newsfeed />
-        )
-      }
 
       <main className="pt-16">{children}</main>
 

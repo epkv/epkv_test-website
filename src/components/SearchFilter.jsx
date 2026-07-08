@@ -92,7 +92,7 @@ const SearchFilter = ({ onSearchResults, onLoadingChange }) => {
     return (
         <div className="relative flex flex-row items-center">
             <input
-                className="w-220 ll:w-260 h-8 2xl:w-380 bg-gray-200 placeholder:text-slate-400 text-slate-800 text-sm border border-slate-300 rounded-4xl pl-4 py-2 transition duration-300 ease focus:outline-none focus:border-slate-600 hover:border-slate-300 shadow-sm focus:shadow"
+                className="w-56 xxxs:w-60 xxs:w-64 xs:w-66 sm:w-142 md:w-166 lg:w-320 h-8 bg-gray-200 placeholder:text-slate-400 text-slate-800 text-sm border border-slate-300 rounded-4xl pl-4 py-2 transition duration-300 ease focus:outline-none focus:border-slate-600 hover:border-slate-300 shadow-sm focus:shadow"
                 placeholder="Search..."
                 value={searchText}
                 onChange={(e) => setSearchText(e.target.value)}
