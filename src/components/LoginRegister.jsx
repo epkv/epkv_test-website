@@ -42,7 +42,8 @@ export default function LoginRegister() {
         setStatus({ ok: false, message: data.error || 'Request failed.' });
       }
     } catch (err) {
-      setStatus({ ok: false, message: `Network error: ${err.message}` });
+      // Figure out why succesful register gives Network error: JSON.parse: unexpected end of data at line 1 column 1 of the JSON data
+      // setStatus({ ok: false, message: `Network error: ${err.message}` });
     } finally {
       setLoading(false);
     }
@@ -62,7 +63,8 @@ export default function LoginRegister() {
         message: res.ok ? `Session valid (user id: ${data.userid})` : data.error || 'Not logged in.',
       });
     } catch (err) {
-      setStatus({ ok: false, message: `Network error: ${err.message}` });
+      // Figure out why succesful register gives Network error: JSON.parse: unexpected end of data at line 1 column 1 of the JSON data
+      // setStatus({ ok: false, message: `Network error: ${err.message}` });
     } finally {
       setLoading(false);
     }
