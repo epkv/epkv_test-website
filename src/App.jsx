@@ -14,12 +14,16 @@ import ProfileMenu from './components/Profile.Menu';
 import { useIsMobile } from './hooks/useIsMobile';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import PostList from './components/PostList';
+const API_BASE = "http://localhost:3002/search"
 
 const App = ({ children }) => {
 
   // Calls the hook to determine if current screen is a mobile-screen or not
   const isMobile = useIsMobile();
   const [activePanel, setActivePanel] = useState(null);
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const togglePanel = (panel) => {
     setActivePanel(prev => (prev === panel ? null : panel))
@@ -31,6 +35,23 @@ const App = ({ children }) => {
 
   console.log(activePanel)
 
+  useEffect(() => {
+    const loadInitialPosts = async () => {
+      setLoading(true)
+      try {
+        const res = await fetch(`${API_BASE}/all`)
+        if (!res.ok) throw new Error(`Request failed with status ${res.status}`)
+        const data = await res.json()
+        setPosts(data)
+      } catch (err) {
+        console.error(err)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    loadInitialPosts()
+  }, []);
 
   // Rendering logic for mobile-screens and desktop based on returned value from above hook
   if (isMobile)
@@ -60,6 +81,10 @@ const App = ({ children }) => {
           />
         )}
 
+        {activePanel !== 'add' && (
+          <PostList posts={posts} loading={loading} />
+        )}
+
         {activePanel === 'add' && <PostAddMobile onClosePost={closePanel} />}
 
         <main className="pt-16">{children}</main>
@@ -74,6 +99,8 @@ const App = ({ children }) => {
         onAddClick={() => togglePanel('add')}
         onNotificationClick={() => togglePanel('notification')}
         onProfileClick={() => togglePanel('profile')}
+        onSearchResults={setPosts}
+        onLoadingChange={setLoading}
       />
 
       {activePanel === 'search' && <SearchDesktop onCloseSearch={closePanel} />}
@@ -82,9 +109,13 @@ const App = ({ children }) => {
       {activePanel === 'notification' && <NotificationsDesktop onCloseNotifications={closePanel} />}
       {activePanel === 'profile' && <ProfileMenu onCloseProfileMenu={closePanel} />}
 
-      {activePanel !== 'add' && (
-        <Newsfeed />
-      )}
+      <PostList posts={posts} loading={loading} />
+
+      {
+        activePanel !== 'add' && (
+          <Newsfeed />
+        )
+      }
 
       <main className="pt-16">{children}</main>
 
