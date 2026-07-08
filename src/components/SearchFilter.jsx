@@ -1,20 +1,19 @@
 import { useState } from 'react'
 import filterLogo from "../assets/filter.svg"
 
-// Adjust to match wherever your backend is actually running
 const API_BASE = "http://localhost:3002/search"
 
 const SearchFilter = ({ onSearchResults, onLoadingChange }) => {
     const [searchText, setSearchText] = useState("")
     const [filterOpen, setFilterOpen] = useState(false)
-    const [activeFilter, setActiveFilter] = useState(null) // 'date' | 'score' | null
+    const [activeFilter, setActiveFilter] = useState(null)
 
-    // date filter state
+
     const [startDate, setStartDate] = useState("")
     const [endDate, setEndDate] = useState("")
 
-    // score filter state
-    const [scoreOrder, setScoreOrder] = useState("desc") // 'asc' | 'desc' | 'above'
+
+    const [scoreOrder, setScoreOrder] = useState("desc")
     const [scoreAbove, setScoreAbove] = useState("")
 
     const [loading, setLoading] = useState(false)
@@ -36,10 +35,6 @@ const SearchFilter = ({ onSearchResults, onLoadingChange }) => {
         try {
             let url
 
-            // NOTE: every score/date query on the backend requires a `search`
-            // param because the SQL always does `content ~ ($1)`. An empty
-            // string is a valid regex that matches everything, so we always
-            // send `search` (defaulting to "") rather than omitting it.
             if (activeFilter === "date" && startDate && endDate) {
                 const params = new URLSearchParams({
                     startdate: startDate,
