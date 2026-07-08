@@ -2,8 +2,20 @@ import '../style.css'
 import { useIsMobile } from '../hooks/useIsMobile'
 import { useState } from 'react'
 import exitLogo from "../assets/exit.svg"
+import LoginRegister from './LoginRegister'
 
 const ProfileMenu = ({ onCloseProfileMenu }) => {
+
+    const [isLogin, setIsLogin] = useState(false);
+
+    const handleLogin = () => {
+        setIsLogin(true);
+    }
+
+    if (isLogin)
+        return (
+            <LoginRegister />
+        )
 
     return (
         <>
@@ -43,6 +55,14 @@ const ProfileMenu = ({ onCloseProfileMenu }) => {
                                     onClick={() => { console.log("Dark mode") }}
                                 >
                                     Dark mode
+                                </button>
+                            </li>
+                            <li className="flex justify-start pr-4 border rounded-2xl mb-2">
+                                <button
+                                    className="p-2"
+                                    onClick={handleLogin}
+                                >
+                                    Log in
                                 </button>
                             </li>
                             <li className="flex justify-start pr-4 border rounded-2xl mb-2">
