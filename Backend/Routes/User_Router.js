@@ -39,14 +39,14 @@ router.put('/login', async (req, res) => {
         if (Comparison) {
           //Create Token with secret
           const token = jwt.sign({
-            userid: userid, 
+            userid: userid,
           }, process.env.Secret, {
             expiresIn: '30m'
           });
           //add Token
           res.cookie("jwt", token, {
-            sameSite: "none",
-            secure: true,
+            sameSite: "lax",
+            secure: false,
           })
           res.status(200).json("Login Succesfull");
         } else {
@@ -60,8 +60,8 @@ router.put('/login', async (req, res) => {
 
 router.get('/', async (req, res) => {
   const token = req.cookies.jwt
-  jwt.verify(token, process.env.Secret, function(err, decoded){
-    if(err){
+  jwt.verify(token, process.env.Secret, function (err, decoded) {
+    if (err) {
       res.status(500).json(err)
     } else {
       console.log("Token verified")

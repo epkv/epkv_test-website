@@ -24,4 +24,4 @@ async function GETUSER_ID(username) {
     }
 }
 
-module.exports = {GETUSER_ID, ADD_USER,GETPASS_USER};
+module.exports = {GETUSER_ID, ADD_USER, GETPASS_USER};
