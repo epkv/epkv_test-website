@@ -57,7 +57,7 @@ router.put('/login', async (req, res) => {
     })
   })
 })
-
+//veri
 router.get('/', async (req, res) => {
   const token = req.cookies.jwt
   jwt.verify(token, process.env.Secret, function(err, decoded){
