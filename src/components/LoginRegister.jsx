@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import '../style.css'
+import { apiBase } from './apibase';
 
-const API_BASE = 'http://localhost:3002';
+const API_BASE = apiBase
 
 export default function LoginRegister() {
   const [mode, setMode] = useState('login');

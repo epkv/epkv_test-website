@@ -14,8 +14,9 @@ import { useIsMobile } from './hooks/useIsMobile';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import PostList from './components/PostList';
+import { apiBase } from './components/apibase';
 
-const API_BASE = "http://localhost:3002/search"
+const API_BASE = apiBase
 
 const App = ({ children }) => {
 
