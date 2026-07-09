@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import filterLogo from "../assets/filter.svg"
+import { apiBase } from './apibase'
 
-const API_BASE = "http://localhost:3002/search"
+const API_BASE = apiBase
+
 
 const SearchFilter = ({ onSearchResults, onLoadingChange }) => {
     const [searchText, setSearchText] = useState("")
