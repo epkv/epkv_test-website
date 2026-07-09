@@ -1,4 +1,4 @@
-const pgPool = require("./connection")
+const pgPool = require("./Connection")
 
 const sql = {
    GET_FEED_DESC: "SELECT * from newsfeed order by date DESC limit 20",
