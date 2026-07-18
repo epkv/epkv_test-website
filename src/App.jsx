@@ -14,9 +14,9 @@ import { useIsMobile } from './hooks/useIsMobile';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import PostList from './components/PostList';
-import { apiBase } from './components/apibase';
+import { apiBaseSearch } from './components/apibase';
 
-const API_BASE = apiBase
+const API_BASE = apiBaseSearch;
 
 const App = ({ children }) => {
 
@@ -71,6 +71,7 @@ const App = ({ children }) => {
 
         {activePanel === 'filter' && <FilterPanel onClose={closePanel} />}
         {activePanel === 'profile' && <ProfileMenu onCloseProfileMenu={closePanel} />}
+        {activePanel === 'add' && <PostAddMobile onClosePost={closePanel} />}
 
         {activePanel !== 'add' && (
           <FooterMobile
@@ -79,11 +80,9 @@ const App = ({ children }) => {
           />
         )}
 
-        {activePanel !== 'add' && (
+        {activePanel !== 'add' && activePanel !== 'profile' && (
           <PostList posts={posts} loading={loading} />
         )}
-
-        {activePanel === 'add' && <PostAddMobile onClosePost={closePanel} />}
 
         <main className="pt-16">{children}</main>
       </>

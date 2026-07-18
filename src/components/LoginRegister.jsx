@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import '../style.css'
-import { apiBase } from './apibase';
+import { apiBaseLogin } from './apibase';
 
-const API_BASE = apiBase
+const API_BASE = apiBaseLogin
 
 export default function LoginRegister() {
   const [mode, setMode] = useState('login');
@@ -65,7 +65,7 @@ export default function LoginRegister() {
       });
     } catch (err) {
       // Figure out why succesful register gives Network error: JSON.parse: unexpected end of data at line 1 column 1 of the JSON data
-      // setStatus({ ok: false, message: `Network error: ${err.message}` });
+      setStatus({ ok: false, message: `Network error: ${err.message}` });
     } finally {
       setLoading(false);
     }

@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import filterLogo from "../assets/filter.svg"
-import { apiBase } from './apibase'
+import { apiBaseSearch } from './apibase'
 
-const API_BASE = apiBase
+const API_BASE = apiBaseSearch
 
 
 const SearchFilter = ({ onSearchResults, onLoadingChange }) => {
