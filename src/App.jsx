@@ -65,7 +65,7 @@ const App = ({ children }) => {
       <>
         {activePanel !== 'add' && (
           <HeaderMobile
-            onHomeClick={() => { console.log("Home clicked") }}
+            onHomeClick={() => togglePanel('home')}
             onFilterClick={() => { console.log("Filter clicked") }}
             onProfileClick={() => togglePanel('profile')}
             onSearchResults={setPosts}
@@ -95,7 +95,7 @@ const App = ({ children }) => {
   return (
     <>
       <HeaderDesktop
-        onHomeClick={() => { console.log("Home clicked") }}
+        onHomeClick={() => togglePanel('home')}
         onFilterClick={() => { console.log("Filter clicked") }}
         onAddClick={() => togglePanel('add')}
         onNotificationClick={() => togglePanel('notification')}
