@@ -16,9 +16,7 @@ const FooterMobile = ({ onNotificationClick, onAddClick }) => {
                 </button>
                 <button
                     className="flex items-center justify-center bg-white text-gray-800 w-1/3 h-auto"
-                    onClick={() => {
-                        console.log("Notification clicked")
-                    }}
+                    onClick={onNotificationClick}
                 >
                     <img
                         className='hover:bg-gray-200 rounded-md'

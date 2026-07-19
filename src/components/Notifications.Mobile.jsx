@@ -2,7 +2,7 @@ import '../style.css'
 import arrowLeftLogo from "../assets/arrowLeft.svg"
 import placeholderImageLogo from "../assets/placeholderImage.svg"
 
-const NotificationsMobile = () => {
+const NotificationsMobile = ({ onCloseNotifications }) => {
     return (
         <div className="flex flex-col w-full">
             <div className="flex flex-row w-full p-4 justify-between border-b border-solid border-black shadow-sm fixed inset-x-0 top-0 bg-white">
@@ -11,9 +11,7 @@ const NotificationsMobile = () => {
                         className='hover:bg-gray-200 rounded-md'
                         src={arrowLeftLogo}
                         alt='return'
-                        onClick={() => {
-                            console.log("Return clicked")
-                        }}
+                        onClick={onCloseNotifications}
                     />
                 </button>
                 <h1 className="text-3xl pt-3 pb-3">

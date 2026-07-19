@@ -76,15 +76,16 @@ const App = ({ children }) => {
         {activePanel === 'filter' && <FilterPanel onClose={closePanel} />}
         {activePanel === 'profile' && <ProfileMenu onCloseProfileMenu={closePanel} setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />}
         {activePanel === 'add' && <PostAddMobile onClosePost={closePanel} />}
+        {activePanel === 'notification' && <NotificationsMobile onCloseNotifications={closePanel} />}
 
-        {activePanel !== 'add' && (
+        {activePanel !== 'add' && activePanel !== 'notification' && (
           <FooterMobile
             onAddClick={() => togglePanel('add')}
             onNotificationClick={() => togglePanel('notification')}
           />
         )}
 
-        {activePanel !== 'add' && activePanel !== 'profile' && (
+        {activePanel !== 'add' && activePanel !== 'profile' && activePanel !== 'notification' && (
           <PostList posts={posts} loading={loading} />
         )}
 
@@ -108,7 +109,7 @@ const App = ({ children }) => {
       {activePanel === 'notification' && <NotificationsDesktop onCloseNotifications={closePanel} />}
       {activePanel === 'profile' && <ProfileMenu onCloseProfileMenu={closePanel} setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />}
 
-      {activePanel !== 'profile' && (
+      {activePanel !== 'profile' && activePanel !== 'notification' && (
         <PostList posts={posts} loading={loading} />
       )}
 
