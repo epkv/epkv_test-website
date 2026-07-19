@@ -1,16 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../style.css'
 import { apiBaseLogin } from './apibase';
 
 const API_BASE = apiBaseLogin
 
-export default function LoginRegister() {
+export default function LoginRegister({ onLoggedIn }) {
   const [mode, setMode] = useState('login');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [status, setStatus] = useState(null);
   const [loading, setLoading] = useState(false);
-
+  
   async function handleSubmit(e) {
     e.preventDefault();
     setStatus(null);
@@ -39,12 +39,12 @@ export default function LoginRegister() {
           message: mode === 'login' ? 'Logged in successfully.' : 'Registered successfully. You can log in now.',
         });
         if (mode === 'register') setMode('login');
+        if (mode === 'login') onLoggedIn();
       } else {
         setStatus({ ok: false, message: data.error || 'Request failed.' });
       }
     } catch (err) {
-      // Figure out why succesful register gives Network error: JSON.parse: unexpected end of data at line 1 column 1 of the JSON data
-      // setStatus({ ok: false, message: `Network error: ${err.message}` });
+      setStatus({ ok: false, message: `Network error: ${err.message}` });
     } finally {
       setLoading(false);
     }
@@ -59,12 +59,12 @@ export default function LoginRegister() {
         credentials: 'include',
       });
       const data = await res.json();
+      onLoggedIn();
       setStatus({
         ok: res.ok,
-        message: res.ok ? `Session valid (user id: ${data.userid})` : data.error || 'Not logged in.',
+        message: res.ok ? `Session valid: ${data}` : data.error || 'Not logged in.',
       });
     } catch (err) {
-      // Figure out why succesful register gives Network error: JSON.parse: unexpected end of data at line 1 column 1 of the JSON data
       setStatus({ ok: false, message: `Network error: ${err.message}` });
     } finally {
       setLoading(false);

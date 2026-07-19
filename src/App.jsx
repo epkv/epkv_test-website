@@ -26,6 +26,8 @@ const App = ({ children }) => {
   const [activePanel, setActivePanel] = useState(null);
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
 
   const togglePanel = (panel) => {
     setActivePanel(prev => (prev === panel ? null : panel))
@@ -55,6 +57,8 @@ const App = ({ children }) => {
     loadInitialPosts()
   }, []);
 
+  console.log(isLoggedIn)
+
   // Rendering logic for mobile-screens and desktop based on returned value from above hook
   if (isMobile)
     return (
@@ -70,7 +74,7 @@ const App = ({ children }) => {
         )}
 
         {activePanel === 'filter' && <FilterPanel onClose={closePanel} />}
-        {activePanel === 'profile' && <ProfileMenu onCloseProfileMenu={closePanel} />}
+        {activePanel === 'profile' && <ProfileMenu onCloseProfileMenu={closePanel} setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />}
         {activePanel === 'add' && <PostAddMobile onClosePost={closePanel} />}
 
         {activePanel !== 'add' && (
@@ -102,7 +106,7 @@ const App = ({ children }) => {
       {activePanel === 'filter' && <FilterPanel onCloseFilter={closePanel} />}
       {activePanel === 'add' && <PostaddDesktop onClosePost={closePanel} />}
       {activePanel === 'notification' && <NotificationsDesktop onCloseNotifications={closePanel} />}
-      {activePanel === 'profile' && <ProfileMenu onCloseProfileMenu={closePanel} />}
+      {activePanel === 'profile' && <ProfileMenu onCloseProfileMenu={closePanel} setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />}
 
       {activePanel !== 'profile' && (
         <PostList posts={posts} loading={loading} />

@@ -24,7 +24,7 @@ router.put('/register', async (req, res) => {
 })
 
 // localhost:8080/user/login body with "username" and "password"
-/* router.put('/login', async (req, res) => {
+ router.put('/login', async (req, res) => {
   //check items exist
   if (req.body === undefined || req.body.username === undefined || req.body.password === undefined) {
     res.status(500).json("Wrong format. Missing password or username");
@@ -56,9 +56,9 @@ router.put('/register', async (req, res) => {
       })
     })
   })
-})*/
+})
 
-router.put('/login', async (req, res) => {
+/* router.put('/login', async (req, res) => {
   if (req.body === undefined || req.body.username === undefined || req.body.password === undefined) {
     return res.status(500).json("Wrong format. Missing password or username");
   }
@@ -87,7 +87,7 @@ router.put('/login', async (req, res) => {
     console.error(err);
     return res.status(500).json({ error: "There was an error logging in" });
   }
-});
+}); */
 
 router.get('/', async (req, res) => {
   const token = req.cookies.jwt

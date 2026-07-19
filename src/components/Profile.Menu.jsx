@@ -4,18 +4,30 @@ import { useState } from 'react'
 import exitLogo from "../assets/exit.svg"
 import LoginRegister from './LoginRegister'
 
-const ProfileMenu = ({ onCloseProfileMenu }) => {
+const ProfileMenu = ({ onCloseProfileMenu, setIsLoggedIn, isLoggedIn }) => {
 
-    const [isLogin, setIsLogin] = useState(false);
+    const [isOpenLogin, setIsOpenLogin] = useState(false);
 
-    const handleLogin = () => {
-        setIsLogin(true);
+    // Whether login component is mounted or not
+    const handleOpenLogin = () => {
+        setIsOpenLogin(true);
     }
 
-    if (isLogin)
+    // Whether user is logged in or not
+    const handleLogIn = () => {
+        setIsLoggedIn(true);
+    }
+
+    const handleLogOut = () => {
+        setIsLoggedIn(false);
+    }
+
+    if (isOpenLogin)
         return (
-            <LoginRegister />
+            <LoginRegister onLoggedIn={handleLogIn} />
         )
+
+    console.log("islogin? profilemenu: ", isLoggedIn)
 
     return (
         <>
@@ -57,26 +69,27 @@ const ProfileMenu = ({ onCloseProfileMenu }) => {
                                     Dark mode
                                 </button>
                             </li>
-                            <li className="flex justify-start pr-4 border rounded-2xl mb-2">
-                                <button
-                                    className="p-2"
-                                    onClick={handleLogin}
-                                >
-                                    Log in
-                                </button>
-                            </li>
-                            <li className="flex justify-start pr-4 border rounded-2xl mb-2">
-                                <button
-                                    className="p-2"
-                                    onClick={() => { console.log("Signed out") }}
-                                >
-                                    Sign out
-                                </button>
-                            </li>
+                            {isLoggedIn ?
+                                <li className="flex justify-start pr-4 border rounded-2xl mb-2">
+                                    <button
+                                        className="p-2"
+                                        onClick={handleLogOut}
+                                    >
+                                        Sign out
+                                    </button>
+                                </li> :
+                                <li className="flex justify-start pr-4 border rounded-2xl mb-2">
+                                    <button
+                                        className="p-2"
+                                        onClick={handleOpenLogin}
+                                    >
+                                        Log in
+                                    </button>
+                                </li>}
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     )
 }
