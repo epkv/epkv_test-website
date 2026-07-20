@@ -58,37 +58,6 @@ router.put('/register', async (req, res) => {
   })
 })
 
-/* router.put('/login', async (req, res) => {
-  if (req.body === undefined || req.body.username === undefined || req.body.password === undefined) {
-    return res.status(500).json("Wrong format. Missing password or username");
-  }
-
-  try {
-    const userid = await usermodel.GETUSER_ID(req.body.username);
-    if (!userid) {
-      return res.status(401).json("Login Failed");
-    }
-
-    const HashedPassword = await usermodel.GETPASS_USER(userid);
-    if (!HashedPassword) {
-      return res.status(401).json("Login Failed");
-    }
-
-    const Comparison = await bcrypt.compare(req.body.password, HashedPassword);
-
-    if (Comparison) {
-      const token = jwt.sign({ userid }, process.env.Secret, { expiresIn: '30m' });
-      res.cookie("jwt", token, { sameSite: "lax", secure: false });
-      return res.status(200).json("Login Succesfull");
-    } else {
-      return res.status(401).json("Login Failed");
-    }
-  } catch (err) {
-    console.error(err);
-    return res.status(500).json({ error: "There was an error logging in" });
-  }
-}); */
-
 router.get('/', async (req, res) => {
   const token = req.cookies.jwt
   jwt.verify(token, process.env.Secret, function (err, decoded) {

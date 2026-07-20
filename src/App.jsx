@@ -9,11 +9,11 @@ import NotificationsMobile from './components/Notifications.Mobile';
 import NotificationsDesktop from './components/Notifications.Desktop';
 import ProfileMenu from './components/Profile.Menu';
 import SearchFilter from './components/SearchFilter';
+import PostList from './components/PostList';
 // Hooks
 import { useIsMobile } from './hooks/useIsMobile';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import PostList from './components/PostList';
 import { apiBaseSearch } from './components/apibase';
 
 const API_BASE = apiBaseSearch;
